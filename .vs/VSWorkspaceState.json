@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\exam-code",
+    "\\exam-code\\docker",
+    "\\exam-code\\docker\\be",
+    "\\exam-code\\docker\\be\\src",
+    "\\exam-code\\docker\\fe",
+    "\\exam-code\\docker\\fe\\src",
+    "\\exam-code\\docker\\fe\\src\\templates",
+    "\\exam-code\\Kubernetes"
+  ],
+  "SelectedNode": "\\exam-code\\docker\\fe\\src\\templates",
+  "PreviewInSolutionExplorer": false
+}
