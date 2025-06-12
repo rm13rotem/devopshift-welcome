@@ -1,9 +1,51 @@
+version: '3.8'
 services:
   web:
-
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    depends_on:
+      - backend-service
+    environment:
+      - BACKEND_URL=http://backend-service:5001
+    networks:
+      - app-network
 
   backend-service:
-
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    depends_on:
+      - mysqldb
+    environment:
+      - DB_HOST=mysqldb
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=crypto_db
+    networks:
+      - app-network
 
   mysqldb:
-      
+    image: mysql:5.7
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: crypto_db
+    networks:
+      - app-network
+
+
+# Define volumes
+#volumes:
+  #mysql_data:
+
+# Define networks
+networks:
+  app-network:
+    driver: bridge
