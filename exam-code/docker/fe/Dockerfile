@@ -2,7 +2,7 @@
 FROM python:3.12-slim
 
 # Set working directory
-WORKDIR /src/templates
+WORKDIR /src
 #WORKDIR /src failed
 
 COPY requirements.txt .
